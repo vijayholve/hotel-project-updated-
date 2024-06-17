@@ -147,3 +147,18 @@ def send_mail_to_all_seed():
             
 
 
+import gspread # type: ignore
+from google.oauth2.service_account import Credentials # type: ignore
+
+scopes=[
+    "https://www.googleapis.com/auth/spreadsheets"
+    
+]
+cread=Credentials.from_service_account_file("credentials.json",scopes=scopes)
+client=gspread.authorize(cread)
+sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
+worksheet=client.open_by_key(sheet_id)
+
+value_list=worksheet.sheet1.row_values(1)
+sheet=worksheet.worksheet("hello world")
+print(sheet)

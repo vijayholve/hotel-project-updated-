@@ -57,7 +57,8 @@ cread=Credentials.from_service_account_file("credentials.json",scopes=scopes)
 client=gspread.authorize(cread)
 sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
 worksheet=client.open_by_key(sheet_id)
+
 value_list=worksheet.sheet1.row_values(1)
 sheet=worksheet.worksheet("hello world")
-value=sheet.update_acell("A1","hello world")
+value=sheet.up
 print(value)

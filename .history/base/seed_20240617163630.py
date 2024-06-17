@@ -145,5 +145,9 @@ def send_mail_to_all_seed():
         # message.error)
             print(e)
             
-
+def user_delete_seed():
+    for user in users:
+        if user.username is not 'jay' and user.id is not None:
+            user.delete()
+        
 
