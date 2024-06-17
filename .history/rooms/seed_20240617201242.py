@@ -94,12 +94,13 @@ def convert_data_into_sheet_for_user():
     sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
     worksheet=client.open_by_key(sheet_id)
     value_list=worksheet.sheet1.row_values(1)
-    sheet=worksheet.worksheet("users")
+    sheet=worksheet.worksheet("order")
     
     User_obj=User.objects.all().values_list("id","username",'email')
-    user_list=[list(row) for row in User_obj]
+    =[list(row) for row in User_obj]
 
     header=["id","username","email"]
-    user_list.insert(0,header)
+    .insert(0,header)
+
     sheet.clear()
-    sheet.append_rows(user_list)
+    sheet.append_rows(rest_list)

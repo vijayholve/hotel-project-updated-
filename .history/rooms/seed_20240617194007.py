@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Room, Booking
-from django.contrib.auth.models import User
+
 def send_mail_to_user_after_booking( pk, id):
     room = Room.objects.get(id=pk)
     booking = Booking.objects.get(id=id)
@@ -49,57 +49,30 @@ def send_mail_to_user_after_booking( pk, id):
 import gspread # type: ignore
 from google.oauth2.service_account import Credentials # type: ignore
 import os
-from base.models import restaurants,dish
-def convert_data_into_sheet_for_dish():
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets"
-        
-    ]
-    cread=Credentials.from_service_account_file("rooms/credentials1.json",scopes=scopes)
-    client=gspread.authorize(cread)
-    sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
-    worksheet=client.open_by_key(sheet_id)
-    value_list=worksheet.sheet1.row_values(1)
-    sheet=worksheet.worksheet("dishes")
-    value=sheet.update_acell("A1","hello world")
-    dish_obj=dish.objects.all().values_list(
-    "dishName"
-    ,"description"
-    ,"price"
-    ,"restaurants"
-    ,"user"
-    ,"dishImage")
-    rest_list=[list(row) for row in dish_obj]
-
-    header=["dishName"
-    ,"description"
-    ,"price"
-    ,"restaurants"
-    ,"user"
-    ,"dishImage"]
-    rest_list.insert(0,header)
-
-    sheet.clear()
-    sheet.append_rows(rest_list)
-def images_show():
-    for row in data_list[1:]:
-        row[2] = f'=IMAGE("{row[2]}")'
-def convert_data_into_sheet_for_user():
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets"
-        
-    ]
-    cread=Credentials.from_service_account_file("rooms/credentials1.json",scopes=scopes)
-    client=gspread.authorize(cread)
-    sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
-    worksheet=client.open_by_key(sheet_id)
-    value_list=worksheet.sheet1.row_values(1)
-    sheet=worksheet.worksheet("users")
+from base.models import restaurants
+scopes=[
+    "https://www.googleapis.com/auth/spreadsheets"
     
-    User_obj=User.objects.all().values_list("id","username",'email')
-    user_list=[list(row) for row in User_obj]
+]
+cread=Credentials.from_service_account_file("rooms/credentials1.json",scopes=scopes)
+client=gspread.authorize(cread)
+sheet_id="1QylRM8O_PgQIOXEbMH_2J7BDfmDdghMT3KoFzeS-kF4"
+worksheet=client.open_by_key(sheet_id)
+value_list=worksheet.sheet1.row_values(1)
+sheet=worksheet.worksheet("hello world")
+value=sheet.update_acell("A1","hello world")
+restaurant=restaurants.objects.all().values_list(restaurantName
+locations
+dishName
+description
+price
+restaurants
+"user"
+,"dishImage")
+rest_list=[list(row) for row in restaurant]
 
-    header=["id","username","email"]
-    user_list.insert(0,header)
-    sheet.clear()
-    sheet.append_rows(user_list)
+header=["restaurantName","locations"]
+rest_list.insert(0,header)
+
+sheet.clear()
+sheet.append_rows(rest_list)
