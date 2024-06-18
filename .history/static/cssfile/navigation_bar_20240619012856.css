@@ -1,0 +1,36 @@
+
+  
+  .navbar *{
+    width:100px;
+    display: flex;
+    flex-direction:row;
+  }
+  .navbar{
+    width:100%;
+    background-color:grey;
+    border:2px solid black;
+  }
+  .navbar-default .navbar-nav > li > a{
+    color:#fff;
+    padding:10px ;
+   color:red;
+ background-color:blue;
+    border:1px solid black;
+    margin:10px;
+<<<<<<< HEAD
+   
+  }
+  
+  a{
+    font-size: 27px;
+  }
+=======
+    
+  }
+  
+  
+>>>>>>> 9f010df2f5319154d753e098d7e55f96fce0e968
+
+
+
+  
