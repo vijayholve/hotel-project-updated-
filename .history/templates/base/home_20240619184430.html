@@ -14,6 +14,7 @@
 {% include 'base/navigation.html' %}
 {% include "base/search_bar.html" %}
 {% if request.user.userprofile %}
+    <h1><a href="{% url 'profile' request.user.id %}">{{request.user.username}}</a></h1>
 {% else %}
    <h1><a href="{% url 'create-profile' %}">create profile</a></h1>
 {% endif %}
@@ -47,7 +48,7 @@
 <div class="main-container">
     {% for restaurant in restaurants %}
   
-{% comment %} <div class="container-box">
+<div class="container-box">
 
     <div class="image-restaurant">
         <img src="/media/{{restaurant.image}}/" alt="{{restarant.image}}"> 
@@ -68,7 +69,7 @@
             </button>   
             {% endif %}
         </div>
-</div> {% endcomment %}
+</div>
 <div>
     <ul class="cards">
         <li>

@@ -26,7 +26,7 @@
       <a href="{% url 'restaurant-delete' restaurant.id %}" >delete</a>
       </button>   
       {% endif %}
-  </div>  
+  </div>
     {% comment %} <div><input type="file"  name="addimage"></div> {% endcomment %}
      <div class="restaurant_box">     
       <div class="restaurant-image">
@@ -36,7 +36,8 @@
      <h3>{{restaurant.locations}}</h3>
      </div>
     </div>
-    {% for message in messages %}
+    <hr>    
+{% for message in messages %}
       <li>{{message}}</li>
 {% endfor%}
 {% include 'base/search_bar.html' %}

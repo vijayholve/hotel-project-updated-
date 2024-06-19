@@ -14,6 +14,7 @@
 {% include 'base/navigation.html' %}
 {% include "base/search_bar.html" %}
 {% if request.user.userprofile %}
+    <h1><a href="{% url 'profile' request.user.id %}">{{request.user.username}}</a></h1>
 {% else %}
    <h1><a href="{% url 'create-profile' %}">create profile</a></h1>
 {% endif %}
@@ -47,7 +48,7 @@
 <div class="main-container">
     {% for restaurant in restaurants %}
   
-{% comment %} <div class="container-box">
+<div class="container-box">
 
     <div class="image-restaurant">
         <img src="/media/{{restaurant.image}}/" alt="{{restarant.image}}"> 
@@ -68,17 +69,17 @@
             </button>   
             {% endif %}
         </div>
-</div> {% endcomment %}
+</div>
 <div>
     <ul class="cards">
         <li>
-          <a href="{% url 'restaurant-data' restaurant.id %}" class="card">
+          <a href="" class="card">
             <img src="/media/{{restaurant.image}}/" alt="{{restarant.image}}"> 
 
             <div class="card__overlay">
               <div class="card__header">
                 <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                {% comment %} <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" /> {% endcomment %}
+               
                 <div class="card__header-text">
                   <h3 class="card__title">{{restaurant.restaurantName}}</h3>            
                   <span class="card__status">1 hour ago</span>
