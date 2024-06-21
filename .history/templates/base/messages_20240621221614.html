@@ -3,7 +3,11 @@
 {% block content %}
 {% for message in messages %}
 
-<div class="error">{{message}} <br></div>
+<div class="error">{{message}}
+{% blocktrans %}
+    
+{% endblocktrans %}
+</div>
 {% endfor %}
 {% endblock %}
 

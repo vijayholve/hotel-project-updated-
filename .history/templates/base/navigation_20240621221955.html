@@ -51,7 +51,9 @@
 	</span>
 	<div class="page">
 		
-		{% if request.user.is_authenticated %} 
+		{% if request.user.is_authenticated %}def initialRequest(request):
+
+    if request.user.is_authenticated
 		<span class="nav-item">
 			<span class="icon">
 				<span class="subicon">.</span>
@@ -66,7 +68,7 @@
 			<span class="icon">
 				<i data-feather="bell"></i>
 			</span>
-			<a href="{% url 'logout-page' request.user.id %}">LogOut</a>
+			<a href="{% url 'logout-page'  %}">LogOut</a>
 			
 		</span>
 	</div>

@@ -102,8 +102,8 @@ def _extracted_from_register_4(request):
 
 @login_required(login_url="login-page")
 def logout_page(request,id):
-    user=User.objects.get(id=id)
-    logout(request,user)
+    user=User
+    logout(request)
     return redirect("login-page")
 
 @login_required(login_url="login-page ")
