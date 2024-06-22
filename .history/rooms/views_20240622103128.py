@@ -31,7 +31,7 @@ def home_room(request):
         except:
             rooms = Room.objects.filter(Q(roomName__icontains=q) |
                                     Q(user__username__icontains=q) |
-                                    Q(location__icongitains=q)|                    
+                                    Q(location__icontains=q)|                    
                                     Q(roomType__icontains=q)
                                     )
     booked_rooms = []
@@ -86,7 +86,8 @@ def avalable_check(id,start,end):
 def booking_room(request, pk): 
     room = Room.objects.get(id=pk)
     rating=Reviews.objects.filter(room=room).aggregate(Avg('review'))['review__avg']
-    rating_count=Reviews.objects.filter(room=room).count()
+    rating_count=rating.Variable = ModelName.objects.count(PassArguments)
+    
     
     if request.method == "POST":
         startdate = request.POST.get("startdate")
@@ -131,7 +132,7 @@ def booking_room(request, pk):
             # else:
             #     messages.error(request,f"Rooms is not avalable on {start_datetime} to {end_datetime}")
     # If the request method is not POST or if there was an error in creating the booking, render the form
-    content = {"room": room,"rating":rating,"rating_count":rating_count}
+    content = {"room": room,"rating":rating}
     return render(request, "room/booking_form.html", content)
 
 def user_booked_data(request,pk):

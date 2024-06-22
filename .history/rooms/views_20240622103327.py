@@ -31,7 +31,7 @@ def home_room(request):
         except:
             rooms = Room.objects.filter(Q(roomName__icontains=q) |
                                     Q(user__username__icontains=q) |
-                                    Q(location__icongitains=q)|                    
+                                    Q(location__icontains=q)|                    
                                     Q(roomType__icontains=q)
                                     )
     booked_rooms = []
@@ -86,7 +86,7 @@ def avalable_check(id,start,end):
 def booking_room(request, pk): 
     room = Room.objects.get(id=pk)
     rating=Reviews.objects.filter(room=room).aggregate(Avg('review'))['review__avg']
-    rating_count=Reviews.objects.filter(room=room).count()
+    rating_count=Reviews.objects.filter().count()
     
     if request.method == "POST":
         startdate = request.POST.get("startdate")

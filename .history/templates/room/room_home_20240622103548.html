@@ -7,7 +7,9 @@
 {% block content %}
 
 <div class="room-container">
-   
+    <div>
+        <h3><a href="{% url 'create-room' %}">Create Room</a></h3>
+    </div>
     {% include 'base/navigation.html' %}
     {% include 'base/search_bar.html' %}
     {% for room in rooms %}
