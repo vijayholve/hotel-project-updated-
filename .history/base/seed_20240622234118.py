@@ -76,9 +76,8 @@ def upload_images():
                     # print("done")
                     obj.dishImage=f
                     obj.save() 
-def upload_images_one(restid):  
-    restaurant=restaurants.objects.get(id=restid)
-    dishes=restaurant.dish_set.all()
+def upload_images(dishpk):
+    dishes=dish.objects.get(id=dishpk)
     director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
     files=glob.glob(os.path.join(director,"*"))
     a=""
@@ -88,7 +87,7 @@ def upload_images_one(restid):
             slite_file=file.split("/")
             for f in slite_file:
                 if obj.dishName.lower() in f.lower():
-                    print("done")
+                    # print("done")
                     obj.dishImage=f
                     obj.save()           
 def register_user_to_send_mail(receiver_email,fullname):

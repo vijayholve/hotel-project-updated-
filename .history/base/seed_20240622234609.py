@@ -82,13 +82,13 @@ def upload_images_one(restid):
     director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
     files=glob.glob(os.path.join(director,"*"))
     a=""
-    for obj in dishes:
+    for obj in dish
         for file in files:
             # print(file)
             slite_file=file.split("/")
             for f in slite_file:
                 if obj.dishName.lower() in f.lower():
-                    print("done")
+                    # print("done")
                     obj.dishImage=f
                     obj.save()           
 def register_user_to_send_mail(receiver_email,fullname):

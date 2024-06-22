@@ -62,35 +62,7 @@ def seed_dish_delete():
     for rest in restaurant:
         for dish in rest.dish_set.all():
             dish.delete()
-def upload_images():
-    dishes=dish.objects.all()
-    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
-    files=glob.glob(os.path.join(director,"*"))
-    a=""
-    for obj in dishes:
-        for file in files:
-            # print(file)
-            slite_file=file.split("/")
-            for f in slite_file:
-                if obj.dishName.lower() in f.lower():
-                    # print("done")
-                    obj.dishImage=f
-                    obj.save() 
-def upload_images_one(restid):  
-    restaurant=restaurants.objects.get(id=restid)
-    dishes=restaurant.dish_set.all()
-    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
-    files=glob.glob(os.path.join(director,"*"))
-    a=""
-    for obj in dishes:
-        for file in files:
-            # print(file)
-            slite_file=file.split("/")
-            for f in slite_file:
-                if obj.dishName.lower() in f.lower():
-                    print("done")
-                    obj.dishImage=f
-                    obj.save()           
+            
 def register_user_to_send_mail(receiver_email,fullname):
     hotel_obj=hotel.objects.get(id=2)
     hotel_name=hotel_obj.name
@@ -143,7 +115,20 @@ Vijay Gholve
         # message.error)
         print(e)
     
-
+def upload_images():
+    dishes=dish.objects.all()
+    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
+    files=glob.glob(os.path.join(director,"*"))
+    a=""
+    for obj in dishes:
+        for file in files:
+            # print(file)
+            slite_file=file.split("/")
+            for f in slite_file:
+                if obj.dishName.lower() in f.lower():
+                    # print("done")
+                    obj.dishImage=f
+                    obj.save() 
 
 hotel_obj=hotel.objects.get(id=2)
 def send_mail_to_all_seed():

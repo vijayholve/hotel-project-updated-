@@ -4,7 +4,7 @@ indian_dishes = [
     "Paneer Tikka",
     "masala Dosa",
     "Samosa",
-    # "Tandoori Chicken",
+    "Tandoori Chicken",
     "Chole Bhature",
     "Palak Paneer",
     "Aloo Gobi",

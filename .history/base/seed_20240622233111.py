@@ -42,55 +42,26 @@ def seed_dish():
                 user=random.choice(user_list),
                 hotel=hotel_obj            
             )
-def seed_dish_one(pk):
-    restaurant=restaurants.objects.get(id=pk)
-    
-
-    for indDish in indian_dishes:
-        fake=Faker()
-        description = fake.paragraph(nb_sentences=3)  # Generate a paragraph with 3 sentences
-        dish=restaurant.dish_set.create(
-            dishName=indDish,
-            description=description,
-            price=random.randint(100,999),
-            restaurants=restaurant,
-            user=random.choice(user_list),
-            hotel=hotel_obj            
-        )
+def seed_dish_one():
+    restaurant=restaurants.objects.get()
+    for rest in restaurant:
+        for indDish in indian_dishes:
+            fake=Faker()
+            description = fake.paragraph(nb_sentences=3)  # Generate a paragraph with 3 sentences
+            dish=rest.dish_set.create(
+                dishName=indDish,
+                description=description,
+                price=random.randint(100,999),
+                restaurants=rest,
+                user=random.choice(user_list),
+                hotel=hotel_obj            
+            )
 def seed_dish_delete():
     restaurant=restaurants.objects.all()
     for rest in restaurant:
         for dish in rest.dish_set.all():
             dish.delete()
-def upload_images():
-    dishes=dish.objects.all()
-    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
-    files=glob.glob(os.path.join(director,"*"))
-    a=""
-    for obj in dishes:
-        for file in files:
-            # print(file)
-            slite_file=file.split("/")
-            for f in slite_file:
-                if obj.dishName.lower() in f.lower():
-                    # print("done")
-                    obj.dishImage=f
-                    obj.save() 
-def upload_images_one(restid):  
-    restaurant=restaurants.objects.get(id=restid)
-    dishes=restaurant.dish_set.all()
-    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
-    files=glob.glob(os.path.join(director,"*"))
-    a=""
-    for obj in dishes:
-        for file in files:
-            # print(file)
-            slite_file=file.split("/")
-            for f in slite_file:
-                if obj.dishName.lower() in f.lower():
-                    print("done")
-                    obj.dishImage=f
-                    obj.save()           
+            
 def register_user_to_send_mail(receiver_email,fullname):
     hotel_obj=hotel.objects.get(id=2)
     hotel_name=hotel_obj.name
@@ -143,7 +114,20 @@ Vijay Gholve
         # message.error)
         print(e)
     
-
+def upload_images():
+    dishes=dish.objects.all()
+    director=rf"C:\Users\Vijay\django_pro\hotels\media\images"
+    files=glob.glob(os.path.join(director,"*"))
+    a=""
+    for obj in dishes:
+        for file in files:
+            # print(file)
+            slite_file=file.split("/")
+            for f in slite_file:
+                if obj.dishName.lower() in f.lower():
+                    # print("done")
+                    obj.dishImage=f
+                    obj.save() 
 
 hotel_obj=hotel.objects.get(id=2)
 def send_mail_to_all_seed():

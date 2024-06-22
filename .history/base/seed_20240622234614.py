@@ -88,7 +88,7 @@ def upload_images_one(restid):
             slite_file=file.split("/")
             for f in slite_file:
                 if obj.dishName.lower() in f.lower():
-                    print("done")
+                    # print("done")
                     obj.dishImage=f
                     obj.save()           
 def register_user_to_send_mail(receiver_email,fullname):
