@@ -31,7 +31,7 @@ def home_room(request):
         except:
             rooms = Room.objects.filter(Q(roomName__icontains=q) |
                                     Q(user__username__icontains=q) |
-                                    Q(location__icontains=q)|                    
+                                    Q(location__iconta=q)|                    
                                     Q(roomType__icontains=q)
                                     )
     booked_rooms = []

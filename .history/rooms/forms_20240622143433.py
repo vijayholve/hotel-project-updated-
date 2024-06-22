@@ -9,10 +9,10 @@ class room_form(ModelForm):
         exclude=["user","hotels"]
 
     def __init__(self, *args, **kwargs):
-        super(room_form, self).__init__(*args, **kwargs)
+        super(RoomForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['placeholder'] = field.label
-            field.widget.attrs['class'] = 'login__input'
+            field.widget.attrs['class'] = 'login__input
 
 
 

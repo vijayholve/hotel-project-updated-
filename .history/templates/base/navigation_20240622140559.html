@@ -77,8 +77,8 @@
 		<span class="nav-item">
 			<span class="icon">
 				<i data-feather="bell"></i>
-			</span>``
-			<a href="{% url 'logout-page' %}">LogOut</a>
+			</span>
+			<a href="{% url 'logout-page' request.user.id %}">LogOut</a>
 		</span>
 	</div>
 		{% else %}

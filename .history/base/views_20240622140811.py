@@ -100,10 +100,10 @@ def _extracted_from_register_4(request):
         context = {"page": "register"}
         return render(request, "base/login_page.html", context)
 
-# @login_required(login_url="login-page")
-def logout_page(request):
-    # user=User.objects.get(id=pk)
-    logout(request)
+@login_required(login_url="login-page")
+def logout_page(request,pk=None):
+    user=User.objects.get(id=pk)
+    logout(request,user)
     return redirect("login-page")
 
 @login_required(login_url="login-page ")
