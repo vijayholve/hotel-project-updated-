@@ -135,7 +135,7 @@ def order_dish(request,pk):
     delavery_charge=int(dishe.price * 0.10)
     total=delavery_charge+(dishe.price * 1.18)  
     location=request.POST.get("location")
-    rating=Reviews.objects.filter(dish=dishe).aggregate(Avg("review"))['review__avg']
+    rating=Reviews.objects.filter(dish=dishe).aaggregate(Avg())
     if request.method == "POST":
         if rating:= request.POST.get("rating"):
             review=Reviews.objects.create(
@@ -165,7 +165,7 @@ def order_dish(request,pk):
                 return redirect("restaurant-data",pk=dishe.restaurants.id )
             except Exception as e:
                 print(f"error is : {e}")
-    content={"dish":dishe,"delivery":delavery_charge,"total":total,"rating":rating}
+    content={"dish":dishe,"delivery":delavery_charge,"total":total}
     return render(request,"restaurant/order_dish.html",content)
         
     

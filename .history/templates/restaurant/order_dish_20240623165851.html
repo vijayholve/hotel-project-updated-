@@ -19,7 +19,7 @@
         {% comment %} <h4>description: {{dish.description}}</h4> {% endcomment %}
         <h2>delivery Charges: {{delivery}}</h2>
         <h2>Total is {{total}} </h2><p>(including 18% gst)</p>
-        <div class="Stars" style="--rating:{{rating|default:0}};" aria-label="Rating of this product is {{ rating|default:4|floatformat:1 }} out of 5.">
+        <div class="Stars" style="--rating:{{rating}};" aria-label="Rating of this product is {{ rating|default:4|floatformat:1 }} out of 5.">
         </div>
     
     <div>
@@ -29,7 +29,6 @@
        <label for="location">Your Loaction</label><br>
         <input type="text" name="location" id=""> <br>
         <button class="button-85">Order It</button>
-    </div>
     </div>
     </form>
 </div>

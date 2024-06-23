@@ -13,7 +13,7 @@ import random
 from .seed import send_mail_to_user_after_order
 from .tasks import send_order_mail_to_user_tasks
 from accounts.models import UserProfile
-from django.db.models import Avg
+
 # Create your views here.
 
 @login_required(login_url="login-page")
@@ -135,7 +135,7 @@ def order_dish(request,pk):
     delavery_charge=int(dishe.price * 0.10)
     total=delavery_charge+(dishe.price * 1.18)  
     location=request.POST.get("location")
-    rating=Reviews.objects.filter(dish=dishe).aggregate(Avg("review"))['review__avg']
+    rating=Reviews.objects.filter()
     if request.method == "POST":
         if rating:= request.POST.get("rating"):
             review=Reviews.objects.create(
@@ -165,7 +165,7 @@ def order_dish(request,pk):
                 return redirect("restaurant-data",pk=dishe.restaurants.id )
             except Exception as e:
                 print(f"error is : {e}")
-    content={"dish":dishe,"delivery":delavery_charge,"total":total,"rating":rating}
+    content={"dish":dishe,"delivery":delavery_charge,"total":total}
     return render(request,"restaurant/order_dish.html",content)
         
     
