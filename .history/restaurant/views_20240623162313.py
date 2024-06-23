@@ -2,7 +2,7 @@ from django.shortcuts import render , get_object_or_404
 from django.shortcuts import render,redirect,HttpResponse
 from .forms import restaurant_form
 from django.contrib.auth.models import User
-from base.models import restaurants,dish,orders,hotel,Images,Reviews
+from base.models import restaurants,dish,orders,hotel,Images
 from django.contrib.auth import login ,authenticate,logout
 from  django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -135,15 +135,7 @@ def order_dish(request,pk):
     delavery_charge=int(dishe.price * 0.10)
     total=delavery_charge+(dishe.price * 1.18)  
     location=request.POST.get("location")
-    
     if request.method == "POST":
-        if rating:= request.POST.get("rating"):
-            review=Reviews.objects.create(
-                review=float(rating),
-                dish=dishe,
-                user=request.user
-            )
-            review.save()
         try:
             order=orders.objects.create(
                 delivery_charges=delavery_charge,

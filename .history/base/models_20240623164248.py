@@ -52,7 +52,7 @@ class Images(models.Model):
 
 class Reviews(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
-    dish=models.ForeignKey(dish,on_delete=models.CASCADE,null=True,blank=True)
+    dish=models.ForeignKey(dish,on_delete=models.CASCADE,null=True,blank=Tr)
     restaurant=models.ForeignKey(restaurants,on_delete=models.CASCADE,null=True,blank=True)
     room=models.ForeignKey(Room,on_delete=models.CASCADE,null=True,blank=True)
     review=models.FloatField(default=0,null=True,blank=True)
