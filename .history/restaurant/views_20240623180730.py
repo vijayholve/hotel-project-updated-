@@ -136,8 +136,9 @@ def order_dish(request,pk):
     delavery_charge=int(dishe.price * 0.10)
     total=delavery_charge+(dishe.price * 1.18)  
     location=request.POST.get("location")
-    rating=Reviews.objects.filter(dish=dishe).aggregate(Avg('review'))['review__avg']
-    rating_count=Reviews.objects.filter(dish=dishe).count()
+    rating=Reviews.objects.filter(dish=dishe).aggregate(    rating_count=Reviews.objects.filter(room=room).count()
+['review__avg']
+    rating_count=rating=Reviews.objects.filter(dish=dishe).count()
     if request.method == "POST":
         if rating:= request.POST.get("rating"):
             review=Reviews.objects.create(

@@ -2,7 +2,7 @@ from django.shortcuts import render , get_object_or_404
 from django.shortcuts import render,redirect,HttpResponse
 from .forms import restaurant_form
 from django.contrib.auth.models import User
-from base.models import restaurants,dish,orders,Images,Reviews
+from base.models import restaurants,dish,orders,~,Images,Reviews
 from django.contrib.auth import login ,authenticate,logout
 from  django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -19,7 +19,6 @@ from django.db.models import Avg
 @login_required(login_url="login-page")
 def update_restaurant(request,pk):
     restaurant_obj=restaurants.objects.get(id=pk)
-    
     if request.method == "POST":
         restaurantName=request.POST.get("restaurantName")
         locations=request.POST.get("locations")
@@ -136,8 +135,7 @@ def order_dish(request,pk):
     delavery_charge=int(dishe.price * 0.10)
     total=delavery_charge+(dishe.price * 1.18)  
     location=request.POST.get("location")
-    rating=Reviews.objects.filter(dish=dishe).aggregate(Avg('review'))['review__avg']
-    rating_count=Reviews.objects.filter(dish=dishe).count()
+    rating=Reviews.objects.filter(dish=dishe).aggregate(Avg("review"))['review__avg']
     if request.method == "POST":
         if rating:= request.POST.get("rating"):
             review=Reviews.objects.create(
@@ -167,7 +165,7 @@ def order_dish(request,pk):
                 return redirect("restaurant-data",pk=dishe.restaurants.id )
             except Exception as e:
                 print(f"error is : {e}")
-    content={"dish":dishe,"delivery":delavery_charge,"total":total,"rating":rating,"rating_count":rating_count}
+    content={"dish":dishe,"delivery":delavery_charge,"total":total,"rating":rating}
     return render(request,"restaurant/order_dish.html",content)
         
     
