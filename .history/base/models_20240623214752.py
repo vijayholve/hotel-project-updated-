@@ -33,7 +33,7 @@ class dish(models.Model):
     def __str__(self):
         return self.dishName
     class Meta:
-        ordering=['-id']
+        ordering=[]
 class orders(models.Model):
     restaurants=models.ForeignKey(restaurants,on_delete=models.CASCADE)
     dish=models.ForeignKey(dish,on_delete=models.CASCADE,related_name="dish")
