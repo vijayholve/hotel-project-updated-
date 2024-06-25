@@ -1,0 +1,26 @@
+{% extends "base/main.html" %}
+{% block content %}
+<div class="container">
+	<div class="text">
+	  Create  Dish
+	</div>
+	<form class="login" method="POST" action="" enctype="multipart/form-data">
+		{% csrf_token %}
+        {% for f in form%}
+	   <div class="form-row">
+        {% csrf_token %}
+		  <div class="input-data">
+			{{f}}
+			 <div class="underline"></div>
+			 <label for="">Dish Name</label>
+		  </div>
+          {% endfor %}
+{% endblock content %}
+
+
+
+
+
+
+
+
