@@ -1,0 +1,18 @@
+{% extends "base/main.html" %}
+
+{% block css_content %}
+{% load static %}
+<link rel="stylesheet" href="{%  static 'restaurant/restaurant_data.css' %}?v={{time}}">
+
+{% endblock css_content %}
+{% block content %}
+{% include 'accounts/navigation_for profile.html' %}
+\
+    
+{% endfor%}
+ </div>
+
+{% endblock content %}
+
+
+
