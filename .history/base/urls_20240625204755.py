@@ -16,7 +16,7 @@ path("logout-page/",views.logout_page,name="logout-page"),
 path("register/",views.register,name="register"),
 path("restaurant-create/",views.create_restaurant,name="restaurant-create"),
 path("create-profile/",create_profile,name="create-profile"),
-# path("search/",views.search_bar,name="search")
+path("search/",views.search_bar,name="search")
 ]
 if settings.DEBUG:  
     urlpatterns+=static(settings.MEDIA_URL,

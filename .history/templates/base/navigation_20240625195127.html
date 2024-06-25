@@ -2,7 +2,7 @@
 {% extends "base/main.html" %}
 {% load static %}
 {% block css_content %}
-<link rel="stylesheet" href="{% static 'cssfile/nav.css'%}?v={{time}}">
+<link rel="stylesheet" href="{% static 'cssfile/nav.css'%}">
 
 {% endblock css_content %}
 {% block content %}
@@ -16,7 +16,7 @@
 	</span>
 	<span class="nav-item">
 		<span class="icon">
-			<span class="subicon"> </span>
+			<span class="subicon">1</span>
 			<i data-feather="bell"></i>
 		</span>
 		<a href="{% url 'profile' request.user.id %}">Profile</a>

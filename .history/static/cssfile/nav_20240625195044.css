@@ -100,9 +100,8 @@ nav {
 	font-size: 10px;
 	line-height: 10px;
 	align-items: center;
-	z-index: 10;
 	min-width: 60px;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	transition: all 80ms ease;
 	}
 	.page{

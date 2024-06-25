@@ -147,7 +147,4 @@ def create_restaurant(request):
         return redirect("home")
     # content={"form":form}
     return render(request,"restaurant/restaurantform.html")
-# def search_bar(request):
-#     if q:=request.GET.get("q"):
-#         print(q)
-#     return render(request,"base/search_bar.html")
+def search_bar()
