@@ -1,0 +1,41 @@
+{% extends "base/main.html" %}
+{% load static %} 
+{% block css_content %}
+{% include 'base/navigation.html' %}
+<link rel="stylesheet" href="{% static 'account/profile_new.css' %}?v={{time}}">
+<style>
+    .portada {  
+
+    background-image: url("/media/{{profile.profilePicture}}/");
+    }
+</style>
+{% endblock css_content %}
+{% block content %}
+
+<div class="card">
+    <div class="card-text">
+      <div class="portada">
+      </div>
+      <div class="title-total">   
+        <div class="title"><a href="{% url 'profile-update' profile.id %}">Update</a> </div>
+        <h2>@{{profile.user.username}}</h2>
+    
+    <div class="desc">{{profile.user.email}}
+        {{profile.city}}</div>
+    <div class="actions">
+      <button><i class="far fa-heart"></i></button>
+      <button><i class="far fa-envelope">
+        <a href="{% url 'user-dishes' request.user.id%}"><img src="C:\Users\Vijay\django_pro\hotels\media\roomImages\simple-work-mark-room-logo-260nw-1982173622.webp" alt=""></a>
+      </i></button>
+      <div>
+      <a href="{% url 'user-rooms' request.user.id %}">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffreepng%2Frestaurant-logo-design-chef-dinner-lunch-vector_12201410.html&psig=AOvVaw0Dlci_4uGeHSK6Zt3Tw13N&ust=1719473963020000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMiR9e_h-IYDFQAAAAAdAAAAABAR" alt="">
+       </a> 
+      </div>
+    </div></div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+
