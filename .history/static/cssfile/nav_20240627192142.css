@@ -19,9 +19,8 @@ nav {
 	cursor: pointer;
 	box-shadow: 1px 2px 4px rgb(20, 20, 20), 0 4px 12px rgb(10, 10, 10);
 }
-body{
-	margin: 5px;
-}
+bodyP
+
 .nav-item {
 	flex-direction: row-reverse;
 	font-size: 0.8999rem;

@@ -10,6 +10,7 @@
 {% endblock css_content %}
 
 {% block content %}
+<div class="home_screen">
 <div class="back-image">
 {% include 'base/navigation.html' %}
 
@@ -33,13 +34,32 @@
     </div>
     </div>
 </div>
-</div>
-</div>
-</div>
 
 <div class="main-container">
     {% for restaurant in restaurants %}
+  
+{% comment %} <div class="container-box">
 
+    <div class="image-restaurant">
+        <img src="/media/{{restaurant.image}}/" alt="{{restarant.image}}"> 
+    </div>
+
+
+    <div class="rest-name">
+        <a href="{% url 'restaurant-data' restaurant.id %}"><h3>{{restaurant.restaurantName}}<br></h3></a>
+    </div>
+    <div class="operation">
+            {% if request.user.is_staff  %}   
+            <h4>@ {{restaurant.id}}</h4>
+            <button class="button-85" role="button">
+            <a href="{% url 'restaurant-update' restaurant.id %}" >edit</a>
+            </button>   
+            <button class="button-85" role="button">
+            <a href="{% url 'restaurant-delete' restaurant.id %}" >delete</a>
+            </button>   
+            {% endif %}
+        </div>
+</div> {% endcomment %}
 <div>
     <ul class="cards">
         <li>

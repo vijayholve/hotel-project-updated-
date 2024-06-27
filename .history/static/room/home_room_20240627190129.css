@@ -38,7 +38,7 @@ body {
         #1241eb
       );
        font-family: Arial, Helvetica, sans-serif;
-
+ display: grid;
  place-items: center;
  min-height: 100vh;
 }
@@ -113,10 +113,10 @@ body {
 }
 
 .container{
-    border-radius:30px;
+    border-radius:50px;
   
     img{
-      border-radius:30px;
- 
+      border-radius:50px;
+       border-bottom-left-radius:(50px); 
     }
   }

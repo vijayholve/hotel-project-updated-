@@ -233,13 +233,8 @@ transform:rotate(-5deg);
 	height:450px;
 		background-image:url("/media/restaurant_images/Zomato-hero.jpg");
 
-   .search-box{
-	   margin-top:20px ;
+   form{
+	margin:0;
    }
-	.tabbar{
-		float:rightb  ;
 		
-		margin-right:20px;
-		
-	}
 }

@@ -2,11 +2,10 @@
 {% extends "base/main.html" %}
 {% load static %}
 {% block css_content %}
-<link rel="stylesheet" href="{% static 'cssfile/nav.css'%}?v={{time}}">
+<link rel="stylesheet" href="{% static 'cssfile/nav.css'%}">
 
 {% endblock css_content %}
 {% block content %}
-<div class="nav-container">
 <nav class="menu" id="nav">
 	<span class="nav-item active">
 		<span class="icon">
