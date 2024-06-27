@@ -20,18 +20,6 @@ receiver_mail=None
 def home_room(request):
     q=request.GET.get("q") if request.GET.get("q") else ''
     rooms= Room.objects.all()
-    review_booking = {}
-    rating_count={}
-    for room in rooms:
-        avg_review = Reviews.objects.filter(room=room).aggregate(Avg("review"))['review__avg']
-        count_review = Reviews.objects.filter(room=room).count()
-        if room.id not in review_booking:
-            review_booking[room.id] = 0.0
-            rating_count[room.id]= 0
-        if avg_review is not None:
-            review_booking[room.id] += float(avg_review)
-            rating_count[room.id] += count_review
-
     if q is not None:
         try:
             q_num=float(q)
@@ -55,9 +43,9 @@ def home_room(request):
     roomrating={}
     for room in rooms:
         avg_rate=Reviews.objects.filter(room=room).aggregate(Avg('review'))['review__avg']
-        
-    content = {'rooms': rooms, 'booked_rooms': booked_rooms,
-               "review_booking":review_booking, "rating_count":rating_count}
+        room1=avg_rate if avg_rate is not None else 0
+        print(room1)
+    content = {'rooms': rooms, 'booked_rooms': booked_rooms,"room1":room1}
     return render(request, 'room/room_home.html', content)
 
 @login_required(login_url="login-page")
@@ -102,7 +90,18 @@ def booking_room(request, pk):
     room = Room.objects.get(id=pk)
     rating=Reviews.objects.filter(room=room).aggregate(Avg('review'))['review__avg']
     rating_count=Reviews.objects.filter(room=room).count()
-    
+    review_booking = {}
+    rating_count={}
+    for room in rooms:
+        avg_review = Reviews.objects.filter(room=room).aggregate(Avg("review"))['review__avg']
+        count_review = Reviews.objects.filter(room=room).count()
+        if room.id not in review_booking:
+            review_booking[room.id] = 0.0
+            rating_count[room.id]= 0
+        if avg_review is not None:
+            review_booking[room.id] += float(avg_review)
+            rating_count[room.id] += count_review
+
     if request.method == "POST":
         startdate = request.POST.get("startdate")
         enddate = request.POST.get("enddate")

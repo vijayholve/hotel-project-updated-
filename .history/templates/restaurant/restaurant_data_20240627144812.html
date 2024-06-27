@@ -3,11 +3,10 @@
 {% block css_content %}
   <link rel="stylesheet" href="{%  static 'restaurant/restaurant_data.css' %}?v={{time}}">\
   <style>
-    .restaurant-obj{
-{% for img in images %}
-      background-image: url("/media/{{img.image}}/");
+    .restaurant-obj .restaurant_box{
 
-{% endfor %}
+      background-image: url("/media/{{image.image}}/");
+         
 
     }
   </style>

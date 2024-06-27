@@ -95,8 +95,7 @@ def restaurant_data(request,pk):
     # content+={}
     content.update({"review_order": review_order,
         "count_dish": count_dish,
-        "rating_count":rating_count,
-        "dishes":dishes,"restaurant":restaurant})
+        "rating_count":rating_count,"dishes":dishes,"restaurant":restaurant})
     return render(request,"restaurant/restaurant_data.html",content)
 @login_required(login_url="login-page")
 def delete_dish(request,pk):

@@ -64,12 +64,7 @@
     <a href="{%   url 'dish-order' dish.id %}">
     <img src="/media/{{dish.dishImage}}/" alt="{{dish.dishImage}}" class="card-media" />
     </a>
-    <div class="reviews">
-      <div class="Stars" style="--rating:{{review_order|get_item:dish.id}};" aria-label="Rating of this product is {{ rating|default:4|floatformat:1 }} out of 5.">
-          </div>
-      <span>({{rating_count|get_item:dish.id}} reviews)</span>
-    </div>
-
+    
   </div>
   <div class="card-shadow"></div>
 </div>

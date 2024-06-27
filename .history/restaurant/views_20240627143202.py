@@ -57,7 +57,7 @@ def restaurant_data(request,pk):
     count_dish = {}
     rating_count={}
     rest_dict={}
-    dishes=restaurant.dish_set.all()
+    location_dict={}
     
     for d in dishes:
         avg_review = Reviews.objects.filter(dish=d).aggregate(Avg("review"))['review__avg']
@@ -74,7 +74,7 @@ def restaurant_data(request,pk):
         content['images'] = images
     except:
         print(f"{restaurant.restaurantName} have not background image")
-    
+    dishes=restaurant.dish_set.all()
     create_dish(request,restaurant.id)
     if q is not None :
         try:
@@ -92,11 +92,8 @@ def restaurant_data(request,pk):
     if under_value := request.GET.get('count') is not None:
         dishes=restaurant.dish_set.all()
         dishes=dishes.filter(price__lt=under_value)   
-    # content+={}
-    content.update({"review_order": review_order,
-        "count_dish": count_dish,
-        "rating_count":rating_count,
-        "dishes":dishes,"restaurant":restaurant})
+    content+={}
+    content.update({"dishes":dishes,"restaurant":restaurant})
     return render(request,"restaurant/restaurant_data.html",content)
 @login_required(login_url="login-page")
 def delete_dish(request,pk):

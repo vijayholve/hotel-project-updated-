@@ -55,8 +55,9 @@ def home_room(request):
     roomrating={}
     for room in rooms:
         avg_rate=Reviews.objects.filter(room=room).aggregate(Avg('review'))['review__avg']
-        
-    content = {'rooms': rooms, 'booked_rooms': booked_rooms,
+        room1=avg_rate if avg_rate is not None else 0
+        print(room1)
+    content = {'rooms': rooms, 'booked_rooms': booked_rooms,"room1":room1,
                "review_booking":review_booking, "rating_count":rating_count}
     return render(request, 'room/room_home.html', content)
 

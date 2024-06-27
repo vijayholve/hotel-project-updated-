@@ -57,7 +57,7 @@ def restaurant_data(request,pk):
     count_dish = {}
     rating_count={}
     rest_dict={}
-    dishes=restaurant.dish_set.all()
+    
     
     for d in dishes:
         avg_review = Reviews.objects.filter(dish=d).aggregate(Avg("review"))['review__avg']
@@ -92,11 +92,10 @@ def restaurant_data(request,pk):
     if under_value := request.GET.get('count') is not None:
         dishes=restaurant.dish_set.all()
         dishes=dishes.filter(price__lt=under_value)   
-    # content+={}
-    content.update({"review_order": review_order,
+    content+={"review_order": review_order,
         "count_dish": count_dish,
-        "rating_count":rating_count,
-        "dishes":dishes,"restaurant":restaurant})
+        "rating_count":rating_count,}
+    content.update({"dishes":dishes,"restaurant":restaurant})
     return render(request,"restaurant/restaurant_data.html",content)
 @login_required(login_url="login-page")
 def delete_dish(request,pk):
