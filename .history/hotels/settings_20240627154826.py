@@ -96,10 +96,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# import dj_database_url
-# DATABASES["default"]=dj_database_url.parse("postgresql://user_databse_user:ItGsxeYeqbYUdQLoLh8GsMGcjUHAXU7o@dpg-cpujmqqj1k6c738bgv8g-a.oregon-postgres.render.com/user_databse")
+import dj_database_url
+DATABASES["default"]=dj_database_url.pa
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
