@@ -1,11 +1,6 @@
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
-# Install Rust toolchain
-RUN apt-get update && apt-get install -y curl
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
-
 # Set the working directory in the container
 WORKDIR /app
 
@@ -29,4 +24,4 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
 
 # Run the command to start uWSGI
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "your_project_name.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "hotels.wsgi:application"]
