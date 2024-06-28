@@ -13,5 +13,5 @@ COPY ./requirements.txt /app/
 RUN pip install -r requirements.txt
 
 COPY . /app
-
-ENTRYPOINT [ "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
+# Run the command to start uWSGI
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "hotels.wsgi:application"]
