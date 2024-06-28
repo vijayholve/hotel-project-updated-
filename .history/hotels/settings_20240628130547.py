@@ -29,7 +29,7 @@ SECRET_KEY = 'vf46304t(3p5%&42#ld+^zc=+!1o1w+b*eh1t%$!)3s97y#*+z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["onrender.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -56,6 +56,7 @@ INSTALLED_APPS+=liabrarias
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
         "django.middleware.security.SecurityMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -155,7 +156,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # For development
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
     
 MEDIA_ROOT= BASE_DIR / "media"
 MEDIA_URL='/media/'

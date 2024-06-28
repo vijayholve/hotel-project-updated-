@@ -29,7 +29,7 @@ SECRET_KEY = 'vf46304t(3p5%&42#ld+^zc=+!1o1w+b*eh1t%$!)3s97y#*+z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["onrender.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -55,7 +55,6 @@ liabrarias=[
 INSTALLED_APPS+=liabrarias
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-        "django.middleware.security.SecurityMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,29 +89,21 @@ WSGI_APPLICATION = 'hotels.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'user_databse',
-#         'USER': 'user_databse_user',
-#         'PASSWORD': 'ItGsxeYeqbYUdQLoLh8GsMGcjUHAXU7o',
-#         'HOST': 'dpg-cpujmqqj1k6c738bgv8g-a.oregon-postgres.render.com',
-#         'PORT': '5432',
-#     }
-# }
-
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'user_databse',
+        'USER': 'user_databse_user',
+        'PASSWORD': 'ItGsxeYeqbYUdQLoLh8GsMGcjUHAXU7o',
+        'HOST': 'dpg-cpujmqqj1k6c738bgv8g-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
-
-# import dj_database_url
-# DATABASES["default"]=dj_database_url.parse("postgresql://user_databse_user:ItGsxeYeqbYUdQLoLh8GsMGcjUHAXU7o@dpg-cpujmqqj1k6c738bgv8g-a.oregon-postgres.render.com/user_databse")
-
+import dj_database_url
+DATABASES["default"]=dj_database_url.parse("postgresql://user_databse_user:ItGsxeYeqbYUdQLoLh8GsMGcjUHAXU7o@dpg-cpujmqqj1k6c738bgv8g-a.oregon-postgres.render.com/user_databse")
+    
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -155,7 +146,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # For development
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
     
 MEDIA_ROOT= BASE_DIR / "media"
 MEDIA_URL='/media/'
