@@ -1,4 +1,0 @@
-{% extends "main.html" %}
-
-{% block  %}{% endblock  %}
-{% block conetnt %}{% endblock conetnt %}

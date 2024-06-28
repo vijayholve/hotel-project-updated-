@@ -1,6 +1,0 @@
-Celery
-Django
-django-celery-beat
-djago-celery-results
-python-decouple
-redis

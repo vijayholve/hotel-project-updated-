@@ -1,0 +1,26 @@
+{% extends "base/main.html" %}\
+{% block css_content %}
+
+{% endblock css_content %}
+{% block content %}
+<div class="all_review">
+    {% for review in reviews_list%}
+    <div>
+        <div class="profile">
+            <div class="profile-image"><img src="" alt=""></div>
+            <div class="profile-name">{{review.user.username}}</div>
+        </div>
+        <div class="rating">
+            <div class="rating">{{review.review}}</div>
+            
+            {% if review.comment %}
+                
+            
+                
+            <div class="comment">{{review.comment}}</div>
+            {% endif %}
+        </div>
+        <div class="review-image"></div>
+    </div>
+</div>
+{% endblock content %}
