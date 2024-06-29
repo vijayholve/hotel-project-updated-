@@ -99,7 +99,7 @@ def _extracted_from_register_4(request):
         if picture:=request.FILES.get("profilePicture"):
             print("Pictrure issaved")
         else:
-            picture="images/default.avif"
+            picture="/images/default.avif"
         profile = UserProfile.objects.create(user=user, profilePicture=picture, dateOfBirth=None)
         profile.save()
         login(request, user)

@@ -93,15 +93,14 @@ def _extracted_from_register_4(request):
     if email is None or len(email) <= 5:
         messages.error(request,"please enter email")
         return redirect("register")
+    picture=request.FILES.get("profilePicture")
     try:
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
-        if picture:=request.FILES.get("profilePicture"):
-            print("Pictrure issaved")
-        else:
-            picture="images/default.avif"
+
         profile = UserProfile.objects.create(user=user, profilePicture=picture, dateOfBirth=None)
         profile.save()
+
         login(request, user)
         send_mail_task.delay(email, fullname)
         return redirect("home")
