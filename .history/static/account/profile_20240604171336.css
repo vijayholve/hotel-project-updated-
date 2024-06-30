@@ -12,11 +12,11 @@
 img{
     width:250px;
     margin-left: 20px;
-        margin-bottom: 20px;
-    }
-    .profile-box *{
-        margin: 20px;
-    }
-    .main-profile{
-        height:800px;
-    }
+    margin-bottom: 20px;
+}
+.profile-box *{
+    margin: 20px;
+}
+.main-profile{
+    height:800px;
+}
