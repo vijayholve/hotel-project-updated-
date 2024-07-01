@@ -86,11 +86,11 @@
             </div>
             <div class="container__text__timing_time">
                 <h5>end dates</h5>
-                <ol>
+                <ul>
                     {% for date in end_dates|get_item:room.id %}
                         <li>{{ date|date:"F j, Y" }}</li>
                     {% endfor %}
-                </ol>
+                </ul>
             </div>  
           </div>
                 <div class="reviews">
@@ -108,4 +108,8 @@
 
     {% endfor %}
 </div>
+<script>
+
+    
+</script>
 {% endblock content %} 

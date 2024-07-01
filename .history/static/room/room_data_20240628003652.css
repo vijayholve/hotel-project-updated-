@@ -234,8 +234,3 @@ font-size:20px;
 font-weight: 400;
 color: #040423;
 }
-.time-data{
-  display:flex;
-  justify-content:space-evenly;
-  margin:10px;
-}

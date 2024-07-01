@@ -1,7 +1,7 @@
      {% extends "base/main.html" %}
 {% load static %}
 {% block css_content %}
-<link rel="stylesheet" href="{% static 'room/room_data.css'%}?v={{time}}">
+<link rel="stylesheet" href="{% static 'room/room_data.css'%}?v=">
 <style>
     .portada {  
 
@@ -77,20 +77,20 @@
           </div>
           <div class="time-data">
             <div class="container__text__timing_time">
-                <h5>start date</h5>
-                <ol>
+                <h5>startdate</h5>
+                <ul>
                     {% for date in start_dates|get_item:room.id %}
                         <li>{{ date|date:"F j, Y" }}</li>
                     {% endfor %}
-                </ol>
+                </ul>
             </div>
             <div class="container__text__timing_time">
-                <h5>end dates</h5>
-                <ol>
+                <h5>end_dates</h5>
+                <ul>
                     {% for date in end_dates|get_item:room.id %}
                         <li>{{ date|date:"F j, Y" }}</li>
                     {% endfor %}
-                </ol>
+                </ul>
             </div>  
           </div>
                 <div class="reviews">
@@ -108,4 +108,8 @@
 
     {% endfor %}
 </div>
+<script>
+
+    
+</script>
 {% endblock content %} 
