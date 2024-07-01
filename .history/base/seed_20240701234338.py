@@ -44,6 +44,8 @@ def seed_dish():
             )
 def seed_dish_one(pk):
     restaurant=restaurants.objects.get(id=pk)
+    
+
     for indDish in indian_dishes:
         fake=Faker()
         description = fake.paragraph(nb_sentences=3)  # Generate a paragraph with 3 sentences
@@ -90,7 +92,7 @@ def upload_images_one(restid):
                     obj.dishImage=f
                     obj.save()           
 def register_user_to_send_mail(receiver_email,fullname):
-    hotel_obj=hotel.objects.get(id=3)
+    hotel_obj=hotel.objects.get(id=2)
     hotel_name=hotel_obj.name
     subject=f"Welcome to {hotel_name} – Your Account is Ready!"
     email_content = f"""
@@ -143,7 +145,7 @@ Vijay Gholve
     
 
 
-hotel_obj=hotel.objects.get(id=3)
+hotel_obj=hotel.objects.get(id=2)
 def send_mail_to_all_seed():
     hotel_name=hotel_obj.name
     subject=f"Welcome to {hotel_name} – Your Account is Ready!"

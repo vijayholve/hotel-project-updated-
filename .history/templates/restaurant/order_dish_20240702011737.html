@@ -29,8 +29,6 @@
         <div class="delivery">delivery Charges: {{delivery}}</div>
         <h2>Total is {{total}} </h2><p>(including 18% gst)</p>
         <div class="reviews">
-            <div><a href="{% url 'reviews-dish' dish.id %}">Reviews</a></div>
-
             <div class="Stars" style="--rating:{{rating|default:0}};" aria-label="Rating of this product is {{ rating|default:4|floatformat:1 }} out of 5.">
             </div>
         <div>
@@ -57,6 +55,8 @@
 </div>
 <div><a href="{% url 'reviews-dish' dish.id %}">Reviews</a></div>
 </div>
-
+<div>
+    {% include 'reviews/dish_reviews.html' with id=dsh.id %}
+</div>
 {% endblock content %}
 

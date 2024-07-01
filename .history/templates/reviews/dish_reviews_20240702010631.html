@@ -2,7 +2,7 @@
 {% block css_content %}
  
 {% load static %} 
-<link rel="stylesheet" href="{% static 'reviews/dish_reviews.css' %}?v={{time}}">
+<link rel="stylesheet" href="{% static 'reviews/dish_reviews.css' %}">
 {% endblock css_content %}
 {% block content %}
 
@@ -15,15 +15,14 @@
 
         </div>
         <div class="review">
-        <div class="container-review">
+            <div>
             <div class="rating">⭐{{review.review}}</div>
 
-            <div class="created">{{review_create|get_item:review.id}}</div> 
-        </div class="comment">   
+            <div class="created">{{review_create|get_item:review.id}}</div>    
             {% if review.comment %}
             <div class="comment">{{review.comment}}</div>
             {% endif %}
-            
+            </div>
         </div>
         <div class="review-image"></div>
     </div>

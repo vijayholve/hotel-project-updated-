@@ -1,7 +1,7 @@
 {% extends "base/main.html" %}
 {% block css_content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'restaurant/orderdish.css' %}">
+<link rel="stylesheet" href="{% static 'restaurant/orderdish.css' %}?v={{time}}">
 
 {% endblock css_content %}
 
@@ -29,8 +29,9 @@
         <div class="delivery">delivery Charges: {{delivery}}</div>
         <h2>Total is {{total}} </h2><p>(including 18% gst)</p>
         <div class="reviews">
-            <div><a href="{% url 'reviews-dish' dish.id %}">Reviews</a></div>
-
+            <div>
+                {% include 'reviews/dish_reviews.html' with id=dish.id %}id
+            </div>
             <div class="Stars" style="--rating:{{rating|default:0}};" aria-label="Rating of this product is {{ rating|default:4|floatformat:1 }} out of 5.">
             </div>
         <div>

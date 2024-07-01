@@ -61,7 +61,7 @@ class Reviews(models.Model):
     room=models.ForeignKey(Room,on_delete=models.CASCADE,null=True,blank=True)
     review=models.FloatField(default=0,null=True,blank=True)
     comment=models.TextField(max_length=200,null=True,blank=True)
-    created=models.DateTimeField(auto_now_add=True)
+    re=models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"{self.review}"
 

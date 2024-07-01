@@ -44,6 +44,8 @@ def seed_dish():
             )
 def seed_dish_one(pk):
     restaurant=restaurants.objects.get(id=pk)
+    
+
     for indDish in indian_dishes:
         fake=Faker()
         description = fake.paragraph(nb_sentences=3)  # Generate a paragraph with 3 sentences
